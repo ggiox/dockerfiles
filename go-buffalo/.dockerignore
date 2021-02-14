@@ -1,0 +1,6 @@
+**/.git
+.devcontainer
+.vscode
+.pgdata
+Dockerfile
+docker-compose.*
