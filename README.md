@@ -1,4 +1,4 @@
 # dockerfiles
 
-Este repositório contém alguns dockerfiles ou docker-compose.yml de imagens docker criadas com o objetivo de prover um ambiente de desenvolvimento e teste de suas aplicações.
+This repository contains some dockerfiles or docker-compose.yml of docker images created in order to provide a development and testing environment for your applications.
 
