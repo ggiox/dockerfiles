@@ -1,3 +1,0 @@
-[submodule "git@github.com:ggiox/dockerfiles/postgres.git"]
-	path = git@github.com:ggiox/dockerfiles/postgres.git
-	url = git@github.com:ggiox/dockerfiles.git
