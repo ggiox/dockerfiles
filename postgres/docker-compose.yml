@@ -18,7 +18,8 @@ services:
       - "5432:5432"
     networks:
       - postgres
-    restart: unless-stopped
+    # Always restart the container if it stops, except that when the container is stopped (manually or otherwise)
+    #restart: unless-stopped
   
   pgadmin:
     container_name: pgadmin
@@ -34,7 +35,8 @@ services:
       - "${PGADMIN_PORT:-5050}:80"
     networks:
       - postgres
-    restart: unless-stopped
+    # Always restart the container if it stops, except that when the container is stopped (manually or otherwise)
+    #restart: unless-stopped
 
 networks:
   postgres:
