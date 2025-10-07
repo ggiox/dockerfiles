@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
 
@@ -9,9 +9,10 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres} # Change this password
       POSTGRES_DB: ${POSTGRES_DB:-postgres} 
-      PGDATA: /var/lib/postgresql/data
-      # POSTGRES_HOST_AUTH_METHOD: ${POSTGRES_HOST_AUTH_METHOD:-trust} 
+      # Uncomment to change the default location of the database files
+      # PGDATA: /var/lib/postgresql/data/db-files/
       # If you set POSTGRES_HOST_AUTH_METHOD to trust, then POSTGRES_PASSWORD is not required.
+      # POSTGRES_HOST_AUTH_METHOD: ${POSTGRES_HOST_AUTH_METHOD:-trust}       
     volumes:
        - pgdata:/var/lib/postgresql/data
     ports:
