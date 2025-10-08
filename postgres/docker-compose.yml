@@ -2,7 +2,7 @@ services:
 
   postgres:
     container_name: postgres
-    image: postgres
+    image: postgres:18
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       # If it is necessary to request the use of the environment variable, change to the line below
