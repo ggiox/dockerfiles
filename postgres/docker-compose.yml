@@ -9,12 +9,14 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres} # Change this password
       POSTGRES_DB: ${POSTGRES_DB:-postgres} 
-      # Uncomment to change the default location of the database files
-      # PGDATA: /var/lib/postgresql/data/db-files/
+      # The PGDATA environment variable of the image was changed to be version specific in PostgreSQL
+      # Later versions will replace 18 with their respective major version 
+      # (e.g., /var/lib/postgresql/19/docker for PostgreSQL 19.x)
+      PGDATA: /var/lib/postgresql/18/docker
       # If you set POSTGRES_HOST_AUTH_METHOD to trust, then POSTGRES_PASSWORD is not required.
       # POSTGRES_HOST_AUTH_METHOD: ${POSTGRES_HOST_AUTH_METHOD:-trust}       
     volumes:
-       - pgdata:/var/lib/postgresql/data
+       - pgdata:/var/lib/postgresql
     ports:
       - "5432:5432"
     networks:
