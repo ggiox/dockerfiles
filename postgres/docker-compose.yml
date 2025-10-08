@@ -5,7 +5,9 @@ services:
     image: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres} # Change this password
+      # If it is necessary to request the use of the environment variable, change to the line below
+      # POSTGRES_PASSWORD: ${POSTGRES_PWD:?Environment variable is required}
+      POSTGRES_PASSWORD: ${POSTGRES_PWD:-postgres}
       POSTGRES_DB: ${POSTGRES_DB:-postgres} 
       # The PGDATA environment variable of the image was changed to be version specific in PostgreSQL
       # Later versions will replace 18 with their respective major version 
@@ -20,14 +22,16 @@ services:
     networks:
       - postgres
     # Always restart the container if it stops, except that when the container is stopped (manually or otherwise)
-    #restart: unless-stopped
+    # restart: unless-stopped
   
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@pgadmin.org}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin} # Change this password
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@pgadmin.org}
+      # If it is necessary to request the use of the environment variable, change to the line below
+      # PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:?Environment variable is required}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PWD:-admin}
     depends_on:
       - postgres
     volumes:
@@ -37,7 +41,7 @@ services:
     networks:
       - postgres
     # Always restart the container if it stops, except that when the container is stopped (manually or otherwise)
-    #restart: unless-stopped
+    # restart: unless-stopped
 
 networks:
   postgres:
